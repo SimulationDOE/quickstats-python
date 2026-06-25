@@ -18,5 +18,15 @@ classifiers = [
 license = "MIT"
 license-files = ["LICEN[CS]E*"]
 
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0"
+]
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "src"
+]
+
 [project.urls]
 Homepage = "https://github.com/SimulationDOE/quickstats-python.git"

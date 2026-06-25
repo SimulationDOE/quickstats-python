@@ -111,7 +111,7 @@ class QuickStats:
             sample standard deviation (float) of the data, or NaN if this is a
             new or just-reset QuickStats object.
         """
-        return math.sqrt(self.sample_variance)
+        return math.sqrt(self.sample_variance) if self.n > 1 else math.nan
 
     s = standard_deviation
     std_dev = standard_deviation
@@ -125,7 +125,7 @@ class QuickStats:
             MLE standard deviation (float) of the data, or NaN if this is a
             new or just-reset QuickStats object.
         """
-        return math.sqrt(self.mle_sample_variance)
+        return math.sqrt(self.mle_sample_variance) if self.n > 1 else math.nan
 
     mle_s = mle_standard_deviation
     mle_std_dev = mle_standard_deviation
@@ -139,7 +139,7 @@ class QuickStats:
             unbiased sample standard error (float) of the data, or NaN if this is a
             new or just-reset QuickStats object.
         """
-        return math.sqrt(self.sample_variance / self.__n)
+        return math.sqrt(self.sample_variance / self.__n) if self.n > 1 else math.nan
 
     std_err = standard_error
 
@@ -152,7 +152,7 @@ class QuickStats:
             sample standard error (float) of the data based on MLE,
             or NaN if this is a new or just-reset QuickStats object.
         """
-        return math.sqrt(self.mle_sample_variance / self.__n)
+        return math.sqrt(self.mle_sample_variance / self.__n) if self.n > 1 else math.nan
 
     mle_std_err = mle_standard_error
 
@@ -169,8 +169,8 @@ class QuickStats:
         """
         return (
             math.nan
-            if self.__n < 2
-            else (self.__sample_mean - target) ** 2 + self.__ssd / self.__n
+            if self.n < 2
+            else (self.avg - target) ** 2 + self.var
         )
 
     # getters for n, sample_mean, min, max, ssd
