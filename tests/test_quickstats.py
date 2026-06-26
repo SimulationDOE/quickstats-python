@@ -1,6 +1,6 @@
 import pytest
 import math
-from stream_stats import QuickStats
+from adaptive_stats import QuickStats
 
 def test_empty():
     qs = QuickStats()

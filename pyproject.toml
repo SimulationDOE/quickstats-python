@@ -3,7 +3,7 @@ requires = ["hatchling >= 1.26"]
 build-backend = "hatchling.build"
 
 [project]
-name = "stream_stats"
+name = "adaptive_stats"
 version = "0.1.0"
 authors = [
   { name="Paul J Sanchez", email="prof.paul.sanchez@gmail.com" },
